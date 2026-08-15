@@ -1,0 +1,16 @@
+{
+  "name": "家庭衣橱穿搭助手",
+  "short_name": "衣橱穿搭",
+  "description": "衣橱管理 + 天气穿搭推荐 + 流行趋势灵感",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf8f3",
+  "theme_color": "#b5706e",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

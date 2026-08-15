@@ -2,8 +2,17 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#b5706e">
+<!-- iOS / iPhone 优化 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="衣橱穿搭助手">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23b5706e'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='serif'%3E%E8%A1%A3%3C/text%3E%3C/svg%3E">
 <title>家庭衣橱穿搭助手</title>
 <style>
 /* ============ 设计基调：高级杂志感 · 米白 + 暖黑 + 干枯玫瑰 · 衬线标题 ============ */
@@ -41,6 +50,28 @@ img{display:block}
 .hidden{display:none!important}
 .serif{font-family:var(--font-serif)}
 @media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
+
+/* ============ iOS / iPhone 适配 ============ */
+/* 灵动岛/刘海顶部安全区 */
+.app-header{position:sticky; top:0; padding-top:env(safe-area-inset-top)}
+.app-header .header-inner{height:var(--nav-h)}
+@media (min-width:760px){ .tabbar{top:calc(var(--nav-h) + env(safe-area-inset-top))} }
+/* 防 iOS 输入聚焦自动缩放 + 表单重置 */
+input,select,textarea{font-size:16px; -webkit-appearance:none; appearance:none; border-radius:0}
+select{background-image:none}
+/* 触摸反馈与滚动 */
+body{-webkit-overflow-scrolling:touch; overscroll-behavior-y:none}
+button{touch-action:manipulation}
+.modal{max-height:min(85vh,760px); -webkit-overflow-scrolling:touch; overflow-y:auto}
+.style-card,.cloth-card,.link-btn,.btn,.chip,.trend-chip{cursor:pointer; -webkit-tap-highlight-color:transparent}
+/* iPhone Pro Max 等大屏逻辑宽度微调 */
+@media (min-width:400px) and (max-width:480px){
+  .sec-title{font-size:23px}
+  .style-card .sc-name{font-size:18px}
+  .weather-hero .w-temp{font-size:52px}
+  .cloth-card .nm{font-size:15.5px}
+  .item-row .it-nm{font-size:15.5px}
+}
 
 /* ============ 头部 ============ */
 .app-header{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
